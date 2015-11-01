@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> - jsFiddle demo</title>
+  
+  
+  <script type='text/javascript' src='//code.jquery.com/jquery-2.1.3.js'></script>
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+  <style type='text/css'>
+    
+  </style>
+  
+
+
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+test =  {
+  abolish: {
+      text: "Federico *suggests policies like abolishing the minimum wage to cure youth unemployment.*\n",
+  links: ['more_abolish']
+  },
+    more_abolish: {text: "gives a 6 point plan to cure youth unemployment. It is less complicated and revolutionary than his usual fare; he suggests policies like abolishing the minimum wage and slashing labor regulations. I expect it would work exactly as well as he thinks it would.\n"},
+   sense: {
+     text: "After All, minimum wage *cuts the bottom out of the labor market.* \n\n Back when there were communists around, some of them would fight against minimum wage laws or occupational safety regulations. *this was a risky gambit on their part.*",
+    links: ['economy', 'marx']
+   },
+    economy: {text: "cuts the bottom out of the labor market. Everyone who would otherwise be working in jobs worth less than $7.25/hour suddenly becomes unemployed. This seems like a bad thing. People making $6/hour seems better than people not being employed at all, right?"},
+    marx: {text: "Their theory was that these would dull the pain just enough to make workers hate their bosses less and prevent revolution, but not enough to matter. The medical analogy would be a patient who comes in with bone pain, receives a painkiller that pushes the pain back below the threshold of “annoying enough to make me visit a doctor”, and never bothers seeking further medical treatment on what turns out to be bone cancer.\n\nI admire the communists for their sheer Xanatosishness, but I don’t know how kindly historical hindsight has treated their strategy. On the one hand, they were dead right that better working conditions dampened interest in communist revolution. On the other hand, it seems relevant that a communist revolution would’ve been horrible, whereas a series of progressively stronger labor regulations actually achieved far more than the communists would have reasonably expected. So this sort of gambit seems potentially very risky.\n"},
+    result: {
+        text: "But this is how I would question whether people making $3/hour is better than their not being employed at all…\n\nThere are probably a lot of people whose labor just isn’t worth *$3/hour*, I expect the number of these people to *increase.*\n *In the past*, there have always been areas to shunt the displaced human *workers to. **But t*here may come a time when machines can do most blue-collar jobs *better, a*nd shunting former blue-collar employees to white-collar jobs seems like a *hard problem.*\n\nSuppose we do what Federico *wants, these* people are going to be underemployed at *$3/hour*.\n\n*I am pretty sure $3/hour is not a living wage.*",
+        links: ['mol', 'increase', 'past', 'displaced', 'but', 'better', 'hard_problem', 'wants', 'mol2', 'living_wage']        
+    },
+   mol: {text: "$7.25/hour. There are probably a lot of people whose labor just isn’t worth $3/hour.\n\nAs technology continues to advance"},
+    increase: {text: "increase. I have been accused of the Luddite fallacy for this and I accept the challenge that the historical data present. But there’s also this reductio ad absurdum where we can manufacture androids exactly as smart as humans in every way for $1. In this world, it seems obvious that all companies would buy androids (who work for free) and fire all their human workers, meaning an end to human employment.\n"},
+    past: {text: "So what’s the difference between the past, when technological advances have never caused long-term unemployment, and the android-world, where it does? My guess is that in the past"},
+    displaced:{text: "workers to: maybe machines can manufacture cars, but they can’t drive taxis; maybe machines can sew textiles, but they can’t predict fashion trends. Technological employment will become a problem only when machines can do everything better than humans, which won’t be until after the Singularity, by which time we will have much bigger problems to worry about.\n\n"},
+    but: {text: "Except that’s not really true. T"},
+    better: {text: "better than humans even if they haven’t mastered the white-collar ones yet. A"},
+    hard_problem: {text:"hard problem. I don’t even think the hard problem is IQ, I think it’s some sort of meta-education which is complicated enough that society hasn’t figured out how to train it yet. No doubt some blue-collar people will be able to adapt to white-collar jobs, and other people won’t. As tech level rises and we approach the android scenario, the number of people who can’t adapt gets larger and larger."},
+    wants: {text: "wants. We promote full unemployment. Well then, these growing masses of people aren’t going to be unemployed. They’re"},
+    mol2: {text: "$3/hour or something like that"},
+    living_wage: {text: "The minimum wage is sometimes called “the living wage”, and there are both lots of sob stories about how it’s impossible to support yourself on the minimum wage, and lots of counter-sob-stories by people who claim it’s totally easy as long as you don’t blow it all on alcohol and expensive hookers. I don’t know enough to have a strong opinion but my guess is it could go either way depending on circumstance. But I am pretty sure $3/hour is not a living wage. $3/hour either necessitates you to work 20 hour days, or actively drains your income because having a job is expensive (commuting costs, professional clothing costs) but people refuse to give you charity if there are $3/hour jobs available and you haven’t taken them.\n"},
+   bad: {
+       text: "On the nationwide scale, which is less dystopian? One in which half the population is unemployed and living off government benefits? Or one in which half the population is working 20 hour days at $3/hour jobs like the ones in that Mother Jones article *and still struggling to support themselves?*",
+       links: ['strikes']
+  },
+  strikes: {text: "and still struggling to support themselves?\n\nThis strikes me as the strongest argument for the minimum wage and other job-killing labor regulations: that they are turning otherwise-miserably-employed people into unemployed welfare recipients. 'Too many people are unemployed and receiving welfare' seems more like a problem society will actually try to solve than 'too many people are miserably employed', and maybe the solution will actually do us some good."}
+};
+$(document).on('click','a', function(e){
+  e.preventDefault();
+  var key = $(this).attr('href').replace('#','');
+  var res = test[key];
+  var html = res.text;
+  $.each(res.links || [], function(i,key){
+    html = html.replace(/\*[^*]*\*/, function(match){ return '<a href="#'+key+'">'+match.replace(/\*/g,'')+'</a>' })
+  });
+  html = html.replace(/\n/g, '<br />')
+  $(this).replaceWith(html);
+});
+});//]]> 
+
+</script>
+
+</head>
+<body>
+  <a href="#abolish">Abolishing the minimum wage to cure youth unemployment </a> <a href="#sense">makes sense.</a> <br/>
+<a href="#result"> It will result in many people underemployed with horrible jobs.</a><br/>
+<a href="#bad"> this does not seem preferable to a Basic Income Guarantee</a>
+  
+</body>
+
+</html>
+
